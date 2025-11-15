@@ -1,5 +1,5 @@
 user_list = [['teste', '123', []]]
-logged_in_user = []
+logged_in_user = ['teste', '123', []]
 
 def register():
     while True: #Verificando se o nome de usuário é único
@@ -23,8 +23,12 @@ def register():
         else:
             break
 
-    user_list.append([username, password, []]) #[usuário, senha, lista de livros cadastrados]
+    user_list.append([username, password, []]) #[usuário, senha, lista de livros cadastrados[]]
     print("\nUsário cadastrado com sucesso.")
+
+def update_user():
+    i = user_list.index([logged_in_user[0]])
+    user_list[i] = logged_in_user
 
 def logoff():
     logged_in_user.clear()
@@ -48,4 +52,5 @@ def login():
 
     if len(logged_in_user) == 0:
         print("\nUsuário ou senha inválidos.")
+
 
