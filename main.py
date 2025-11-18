@@ -4,19 +4,15 @@ from functions import user, book
 # user.register()
 # print(user.user_list)
 
-# user.login()
+# user.logged_in_user = user.login()
 # print(user.logged_in_user)
-# user.logoff()
+# user.logged_in_user = user.logoff()
 # print(user.logged_in_user)
 
-
-print(user.user_list)
-print(user.logged_in_user)
-
-book.book_add("Livro 1")
-
-print(user.user_list)
-print(user.logged_in_user)
-
-
-
+print(book.library)
+book.add_book_to_lib("titulo 1", 2)
+book.add_book_to_lib("titulo 3", 4)
+print(book.library)
+book.rmv_book_from_lib("titulo 2", 3)
+book.rmv_book_from_lib("titulo 3", 4)
+print(book.library)
