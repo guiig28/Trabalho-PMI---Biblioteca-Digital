@@ -16,7 +16,7 @@ def add_book_to_lib(title: str, qt: int):
     if not found_book: 
         library.append({book_data[0]: title, book_data[1]: qt})
 
-    print("Livro adicionado à biblioteca.")
+    print("\nLivro adicionado à biblioteca.")
 
 def rmv_book_from_lib(title: str, qt: int):
     found_book = False
@@ -32,6 +32,22 @@ def rmv_book_from_lib(title: str, qt: int):
             break
 
     if found_book: 
-        print("Livro removido com sucesso.")
+        print("\nLivro removido com sucesso.")
     else:
-        print("Livro não encontrado.")
+        print("\nLivro não encontrado.")
+
+def rent_book(title):
+    for i in range(len(library)):
+        if title in logged_in_user[user_data[2]]:
+            print("\nLivro ja alugado pelo usuário.")
+        else:
+            if library[i][book_data[0]] == title:
+                library[i][book_data[1]] -= 1
+
+                if library[i][book_data[1]] == 0:
+                    library.pop(i)     
+
+                logged_in_user[user_data[2]].append(title)    
+                update_user() 
+            else:
+                print("\nLivro não disponível na biblioteca.")

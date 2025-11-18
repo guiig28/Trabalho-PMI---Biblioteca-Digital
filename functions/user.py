@@ -1,6 +1,7 @@
 user_data = ("username", "password", "booklist")
 user_list = [{user_data[0]: "teste", user_data[1]: "123", user_data[2]: []}]
-logged_in_user: dict[str, any] = {user_data[0]: None, user_data[1]: None, user_data[2]: []}
+# logged_in_user: dict[str, any] = {user_data[0]: None, user_data[1]: None, user_data[2]: []}
+logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: []}
 
 def register():
     while True: #Verificando se o nome de usuário é único
