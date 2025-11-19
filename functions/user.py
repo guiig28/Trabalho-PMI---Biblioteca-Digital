@@ -1,5 +1,5 @@
 user_data = ("username", "password", "booklist")
-user_list = [{user_data[0]: "teste", user_data[1]: "123", user_data[2]: []}]
+user_list = [{user_data[0]: "teste", user_data[1]: "123", user_data[2]: ['titulo 1']}, {user_data[0]: "fulano", user_data[1]: "1234", user_data[2]: ['titulo 1', 'titulo 3']}]
 # logged_in_user: dict[str, any] = {user_data[0]: None, user_data[1]: None, user_data[2]: []}
 logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: []}
 
