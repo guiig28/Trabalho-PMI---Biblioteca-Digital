@@ -32,4 +32,8 @@ from functions import user, book
 
 # book.find_book_by_title("titulo 1")
 
-book.lib_stats()
+
+book.load_books()
+user.load_users()
+print(book.library)
+print(user.user_list)

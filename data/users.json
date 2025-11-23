@@ -1,0 +1,22 @@
+[
+    {
+        "username": "teste",
+        "password": "123",
+        "booklist": [
+            "titulo 1",
+            "titulo 3"
+        ]
+    },
+    {
+        "username": "teste2",
+        "password": "123",
+        "booklist": [
+            "titulo 1"
+        ]
+    },
+    {
+        "username": "teste3",
+        "password": "123",
+        "booklist": []
+    }
+]

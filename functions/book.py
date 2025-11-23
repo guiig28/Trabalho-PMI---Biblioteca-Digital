@@ -1,8 +1,20 @@
 #Imports
 from .user import user_data, user_list, logged_in_user, update_user
+import json
 
 book_data = ("title", "quantity")
-library = [{book_data[0]: "titulo 1", book_data[1]: 3}, {book_data[0]: "titulo 2", book_data[1]: 8}, {book_data[0]: "titulo 3", book_data[1]: 1}]
+library = []
+
+def update_books():
+    with open('data/books.json', 'w') as books_json:
+        json.dump(library, books_json, indent=4)
+
+def load_books():
+    with open('data/books.json', 'r', encoding='utf-8') as books_json:
+        data = json.load(books_json)
+
+    library.extend(data)
+
 
 def add_book_to_lib(title: str, qt: int):
     found_book = False
@@ -16,6 +28,7 @@ def add_book_to_lib(title: str, qt: int):
     if not found_book: 
         library.append({book_data[0]: title, book_data[1]: qt})
 
+    update_books()
     print("\nLivro adicionado à biblioteca.")
 
 def rmv_book_from_lib(title: str, qt: int):
@@ -31,7 +44,8 @@ def rmv_book_from_lib(title: str, qt: int):
 
             break
 
-    if found_book: 
+    if found_book:
+        update_books() 
         print("\nLivro removido com sucesso.")
     else:
         print("\nLivro não encontrado.")
@@ -48,7 +62,8 @@ def rent_book(title):
 
                     logged_in_user[user_data[2]].append(title)
 
-                    update_user() 
+                    update_user()
+                    update_books() 
                     avaible_book = True
                     print(f"\nLivro {title} alugado com sucesso.")
 
@@ -71,6 +86,8 @@ def return_book(title):
         if not found_book:
             library.append({book_data[0]: title, book_data[1]: 1})
 
+        update_user()
+        update_books()
         print(f"\nLivro {title} devolvido com sucesso.")
     else:
         print(f"\nLivro {title} não encontrado.")
@@ -115,4 +132,4 @@ def lib_stats():
         print(f"\nTotal de cópias: {total}")
 
     print(f"\n\nLivros disponíveis para alugar: {books_avaible}")
-    print(f"\n\nTotal: {total_books}")
+    print(f"\nTotal: {total_books}")

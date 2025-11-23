@@ -1,7 +1,10 @@
+#imports
+import json
+
 user_data = ("username", "password", "booklist")
-user_list = [{user_data[0]: "teste", user_data[1]: "123", user_data[2]: ['titulo 1']}, {user_data[0]: "fulano", user_data[1]: "1234", user_data[2]: ['titulo 1', 'titulo 3']}]
+user_list = []
 # logged_in_user: dict[str, any] = {user_data[0]: None, user_data[1]: None, user_data[2]: []}
-logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: []}
+logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: ["titulo 1", "titulo 3"]}
 
 def register():
     while True: #Verificando se o nome de usuário é único
@@ -37,6 +40,20 @@ def update_user():
     
     if not found_user:
         print("\nErro ao encontrar usuário.")
+
+    with open('data/users.json', 'w') as users_json:
+        json.dump(user_list, users_json, indent=4)
+
+def load_users():
+    with open('data/users.json', 'r', encoding='utf-8') as users_json:
+        data = json.load(users_json)
+
+    user_list.extend(data)
+
+
+
+    
+
         
 
 def logoff():
