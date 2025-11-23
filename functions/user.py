@@ -4,7 +4,7 @@ import json
 user_data = ("username", "password", "booklist")
 user_list = []
 # logged_in_user: dict[str, any] = {user_data[0]: None, user_data[1]: None, user_data[2]: []}
-logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: ["titulo 1", "titulo 3"]}
+logged_in_user: dict[str, any] = {user_data[0]: "teste", user_data[1]: "123", user_data[2]: ["titulo 1", "titulo 3", "titulo 12", "titulo 35", "titulo 1", "titulo 365", "titulo 12", "titulo 35", "titulo 1", "titulo 3", "titulo 12", "titulo 35"]}
 
 def register():
     while True: #Verificando se o nome de usuário é único
@@ -48,13 +48,7 @@ def load_users():
     with open('data/users.json', 'r', encoding='utf-8') as users_json:
         data = json.load(users_json)
 
-    user_list.extend(data)
-
-
-
-    
-
-        
+    user_list.extend(data)        
 
 def logoff():
     if logged_in_user != {user_data[0]: None, user_data[1]: None, user_data[2]: []}:
@@ -76,5 +70,3 @@ def login():
 
     if logged_in_user == {user_data[0]: None, user_data[1]: None, user_data[2]: []}:
         print("\nUsuário ou senha inválidos.")
-
-

@@ -33,7 +33,11 @@ from functions import user, book
 # book.find_book_by_title("titulo 1")
 
 
+# book.load_books()
+# user.load_users()
+# print(book.library)
+# print(user.user_list)
+
 book.load_books()
-user.load_users()
-print(book.library)
-print(user.user_list)
+book.show_user_books(3)
+book.show_library(1)
