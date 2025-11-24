@@ -4,19 +4,29 @@
         "password": "123",
         "booklist": [
             "titulo 1",
-            "titulo 3"
-        ]
+            "titulo 3",
+            "titulo 4"
+        ],
+        "role": "adm"
     },
     {
         "username": "teste2",
         "password": "123",
         "booklist": [
             "titulo 1"
-        ]
+        ],
+        "role": "user"
     },
     {
         "username": "teste3",
         "password": "123",
-        "booklist": []
+        "booklist": [],
+        "role": "user"
+    },
+    {
+        "username": "fulano",
+        "password": "444",
+        "booklist": [],
+        "role": "user"
     }
 ]

@@ -51,7 +51,7 @@ def rmv_book_from_lib(title: str, qt: int):
         print("\nLivro não encontrado.")
 
 def rent_book(title):
-    if title in logged_in_user[user_data[2]]:
+    if title in logged_in_user[0][user_data[2]]:
             print(f"\nLivro {title} ja alugado pelo usuário.")
     else:
         avaible_book = False
@@ -60,7 +60,7 @@ def rent_book(title):
                 if library[i][book_data[1]] > 0:
                     library[i][book_data[1]] -= 1
 
-                    logged_in_user[user_data[2]].append(title)
+                    logged_in_user[0][user_data[2]].append(title)
 
                     update_user()
                     update_books() 
@@ -73,8 +73,8 @@ def rent_book(title):
             print(f"\nLivro {title} não disponível na biblioteca.")
 
 def return_book(title):
-    if title in logged_in_user[user_data[2]]:
-        logged_in_user[user_data[2]].remove(title)
+    if title in logged_in_user[0][user_data[2]]:
+        logged_in_user[0][user_data[2]].remove(title)
 
         found_book = False
         for i in range(len(library)):
@@ -93,21 +93,11 @@ def return_book(title):
         print(f"\nLivro {title} não encontrado.")
 
 
-def show_user_books(pag: int):
-    i = (pag - 1) * 5
+def show_user_books():
+        print(logged_in_user[0][user_data[2]]) 
 
-    if i > len(logged_in_user[user_data[2]]):
-        print("Página inválida")
-    else:
-        print(logged_in_user[user_data[2]][i : i + 5]) #Paginado de 5 em 5
-
-def show_library(pag: int):
-    i = (pag - 1) * 5
-
-    if i > len(library):
-        print("Página inválida")
-    else:
-        print(library[i : i + 5]) #Paginado de 5 em 5
+def show_library():
+        print(library)
 
 def find_book_by_title(title):
     books_in_library = 0
